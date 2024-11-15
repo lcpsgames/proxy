@@ -18,13 +18,16 @@
   </style>
 </head>
 <body>
-  <iframe id="embedFrame" title="Proxy"></iframe>
+  <!-- Hidden element containing the URL -->
+  <div id="hiddenUrl" data-url="https://cardclubs.net" style="display:none;"></div>
+  
+  <iframe id="embedFrame" title="Card Clubs"></iframe>
 
   <script>
-    // Dynamically construct the URL
-    const parts = ['https://', 'cardclubs', '.net'];
+    // Get the URL from the hidden element
+    const hiddenUrl = document.getElementById('hiddenUrl').getAttribute('data-url');
     const iframe = document.getElementById('embedFrame');
-    iframe.src = parts.join('');
+    iframe.src = hiddenUrl;
 
     // Disable right-click to deter basic inspection
     document.addEventListener('contextmenu', (event) => event.preventDefault());
