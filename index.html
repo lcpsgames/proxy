@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Responsive Link</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed CardClubs</title>
   <style>
-    a {
-      text-decoration: none;
-      color: blue;
-      font-size: 16px;
-      padding: 10px;
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
     }
-
-    @media (max-width: 768px) {
-      a {
-        font-size: 14px;
-        padding: 8px;
-      }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <a href="https://cardclubs.net">proxy</a>
+  <iframe id="embedFrame" title="Proxy"></iframe>
+
+  <script>
+    // Dynamically construct the URL
+    const parts = ['https://', 'cardclubs', '.net'];
+    const iframe = document.getElementById('embedFrame');
+    iframe.src = parts.join('');
+
+    // Disable right-click to deter basic inspection
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+  </script>
 </body>
 </html>
